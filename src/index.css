@@ -2,9 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
 body {
-    font-family: sans-serif;
-    background-color: #222222;
-    color: rgb(253, 253, 253);
+   font-family: 'Righteous', sans-serif;
+   background-color: #222222;
+   color: rgb(253, 253, 253);
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar';
+import { AiOutlineArrowDown } from 'react-icons/ai';
 
 const apikey = process.env.REACT_APP_NASA_KEY;
 
@@ -23,10 +24,13 @@ const NasaPhoto = () => {
 
    return (
       <>
-         <NavBar />
          <div>
             {photoData.media_type === 'image' ? (
-               <img src={photoData.url} alt={photoData.title} />
+               <img
+                  className=' absolute object-cover h-screen w-full'
+                  src={photoData.url}
+                  alt={photoData.title}
+               />
             ) : (
                <iframe
                   title='space-video'
@@ -37,11 +41,17 @@ const NasaPhoto = () => {
                   className='photo'
                />
             )}
-            <div>
-               <h1>{photoData.title}</h1>
-               <p>{photoData.date}</p>
-               <p>{photoData.explanation}</p>
+         </div>
+         <NavBar />
+         <div className='absolute z-10 bottom-[0%] top-[73%] overflow-scroll p-6 m-6 shadow-lg shadow-cyan-200/50 rounded'>
+            <div className='flex justify-between items-center'>
+               <h1 className='text-3xl mt-4'>{photoData.title}</h1>
+               <AiOutlineArrowDown className=' text-2xl mt-4' />
             </div>
+            <p className='mt-4'>{photoData.date}</p>
+            <p className='mt-4 overflow-hidden tracking-wide'>
+               {photoData.explanation}
+            </p>
          </div>
       </>
    );
